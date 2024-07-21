@@ -105,10 +105,10 @@ echo "<!DOCTYPE html>
     <meta name=\"author\" content=\"\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title></title>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="index.js" defer></script>    
-    <link href="main.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <script src=\"../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" defer></script>
+    <script src=\"index.js\" defer></script>    
+    <link href=\"main.css\" rel=\"stylesheet\">
+    <link href=\"style.css\" rel=\"stylesheet\">
     <link rel=\"icon\" type=\"image/x-icon\" href=\"\">
 </head>
 <body>
