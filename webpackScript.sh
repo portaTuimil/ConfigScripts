@@ -1,13 +1,14 @@
 #!/bin/bash
 
-#npm init -y
-#mkdir src && touch src/index.html && touch webpack.config.js && touch index.html && mkdir src/assets
-#npm install webpack webpack-cli
-#npm install --save-dev html-webpack-plugin
-#npm install --save-dev style-loader css-loader
-#sed -i '6 i \\ \ \ \ "watch\": \"webpack --watch\",' package.json
-#sed -i '6 i \\ \ \ \ "build\": \"webpack --mode=development\",' package.jsoni
-: '
+npm init -y
+mkdir src && touch src/index.html src/styles.css src/index.js webpack.config.js index.html .gitignore && mkdir src/assets
+npm install webpack webpack-cli
+npm install --save-dev html-webpack-plugin
+npm install --save-dev style-loader css-loader
+sed -i '6 i \\ \ \ \ "watch\": \"webpack --watch\",' package.json
+sed -i '6 i \\ \ \ \ "build\": \"webpack --mode=development\",' package.json
+#fill webpack.config.js
+
 echo "const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -43,4 +44,40 @@ module.exports = {
         },
       ]
     }
-  }" > webpack.config.js '
+  }" > webpack.config.js 
+#fill the html deflector
+
+echo "<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta http-equiv=\"refresh\" content=\"0; url=./dist/index.html\">
+    <title>deflector</title>
+</head>
+<body>
+</body>
+</html>" > index.html 
+
+echo "import './styles.css';" > src/index.js
+#fill src/index.html
+
+echo "<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"description\" content=\"\">
+    <meta name=\"author\" content=\"\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title></title>
+    <script src="index.js" defer></script>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">
+    <link rel=\"icon\" type=\"image/x-icon\" href=\"\">
+</head>
+<body>
+
+</body>
+</html>" > src/index.html 
+
+echo "node_modules" > .gitignore
