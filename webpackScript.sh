@@ -15,7 +15,7 @@ echo "const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = { 
-    entry: './src/index.js',
+    entry: ['./src/index.js', './src/style.css'],
     output: {
       filename: 'main.js',
       clean: true,
@@ -33,7 +33,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            /*favicon: "",*/ //Path to icon
+            /*favicon: '',*/ //Path to icon
             inject: true,
             template: path.resolve(__dirname, 'src', 'index.html'),
           }),
@@ -70,7 +70,6 @@ echo "<!DOCTYPE html>
 </body>
 </html>" > index.html 
 
-echo "import './style.css';" > src/index.js
 #fill src/index.html
 
 echo "<!DOCTYPE html>
@@ -96,8 +95,7 @@ echo "node_modules" > .gitignore
 npm install --save-dev bootstrap
 touch src/main.scss
 echo "@import \"../node_modules/bootstrap/scss/bootstrap\";" > src/main.scss #scss must be compiled 
-echo "import \"./main.css\";
-import \"./style.css\";" > src/index.js 
+sed -i "5 c\ \t\tentry:['./src/index.js', './src/main.css', './src/style.css']," webpack.config.js
 
 echo "<!DOCTYPE html>
 <html lang=\"en\">
